@@ -79,7 +79,6 @@ try {
                                     <td><?php echo htmlspecialchars($usuario['nombre']); ?></td>
                                     <td><?php echo htmlspecialchars($usuario['apellido']); ?></td>
                                     <td><?php echo htmlspecialchars($usuario['revisor_nombre'] . ' ' . $usuario['revison_apellido']); ?></td>
-                                    <td><?php echo date('d/m/Y H:i', strtotime($usuario['fecha_carga'])); ?></td>
                                 </tr>
                                 <?php endforeach; ?>
                             <?php endif; ?>
@@ -112,7 +111,6 @@ try {
                                     <td><?php echo htmlspecialchars($usuario['nombre']); ?></td>
                                     <td><?php echo htmlspecialchars($usuario['apellido']); ?></td>
                                     <td><?php echo htmlspecialchars($usuario['revisor_nombre'] . ' ' . $usuario['revison_apellido']); ?></td>
-                                    <td><?php echo date('d/m/Y H:i', strtotime($usuario['fecha_carga'])); ?></td>
                                 </tr>
                                 <?php endforeach; ?>
                             <?php endif; ?>
@@ -145,7 +143,6 @@ try {
                                     <td><?php echo htmlspecialchars($usuario['nombre']); ?></td>
                                     <td><?php echo htmlspecialchars($usuario['apellido']); ?></td>
                                     <td><?php echo htmlspecialchars($usuario['revisor_nombre'] . ' ' . $usuario['revison_apellido']); ?></td>
-                                    <td><?php echo date('d/m/Y H:i', strtotime($usuario['fecha_carga'])); ?></td>
                                 </tr>
                                 <?php endforeach; ?>
                             <?php endif; ?>
