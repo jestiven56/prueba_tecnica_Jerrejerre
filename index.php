@@ -15,6 +15,12 @@
         <main>
             <div class="form-container">
                 <h2>Formulario de Carga</h2>
+
+                <div class="container-info">
+                    <p>El archivo debe tener el siguiente formato:</p>
+                    <code>email@ejemplo.com,Nombre,Apellido,1,5</code>
+                    <p>Donde el último número es el ID del revisor asignado.</p>
+                </div>
                 
                 <?php if (isset($_GET['error'])): ?>
                 <div class="error-message">
