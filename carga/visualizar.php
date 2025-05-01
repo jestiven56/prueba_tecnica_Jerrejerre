@@ -7,14 +7,14 @@ try {
     $pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-    // Obtener los usuarios activos
-    $activos = $pdo->query("SELECT * FROM usuarios WHERE codigo = 1 ORDER BY fecha_carga DESC")->fetchAll(PDO::FETCH_ASSOC);
+    // Obtener los usuarios activos y sus revisores
+    $activos = $pdo->query("SELECT u.*, r.nombre AS revisor_nombre, r.apellido AS revison_apellido FROM usuarios u LEFT JOIN revisores r ON u.revisor_id = r.id WHERE u.codigo = 1 ORDER BY u.fecha_carga DESC")->fetchAll(PDO::FETCH_ASSOC);
     
     // Obtener los usuarios inactivos
-    $inactivos = $pdo->query("SELECT * FROM usuarios WHERE codigo = 2 ORDER BY fecha_carga DESC")->fetchAll(PDO::FETCH_ASSOC);
+    $inactivos = $pdo->query("SELECT u.*, r.nombre AS revisor_nombre, r.apellido AS revison_apellido FROM usuarios u LEFT JOIN revisores r ON u.revisor_id = r.id WHERE u.codigo = 2 ORDER BY u.fecha_carga DESC")->fetchAll(PDO::FETCH_ASSOC);
     
     // Obtener los usuarios en espera
-    $espera = $pdo->query("SELECT * FROM usuarios WHERE codigo = 3 ORDER BY fecha_carga DESC")->fetchAll(PDO::FETCH_ASSOC);
+    $espera = $pdo->query("SELECT u.*, r.nombre AS revisor_nombre, r.apellido AS revison_apellido FROM usuarios u LEFT JOIN revisores r ON u.revisor_id = r.id WHERE u.codigo = 3 ORDER BY u.fecha_carga DESC")->fetchAll(PDO::FETCH_ASSOC);
     
 } catch (PDOException $e) {
     $error = "Error en la base de datos: " . $e->getMessage();
@@ -63,6 +63,7 @@ try {
                                 <th>Email</th>
                                 <th>Nombre</th>
                                 <th>Apellido</th>
+                                <th>Revisor</th>
                                 <th>Fecha de Carga</th>
                             </tr>
                         </thead>
@@ -77,6 +78,7 @@ try {
                                     <td><?php echo htmlspecialchars($usuario['email']); ?></td>
                                     <td><?php echo htmlspecialchars($usuario['nombre']); ?></td>
                                     <td><?php echo htmlspecialchars($usuario['apellido']); ?></td>
+                                    <td><?php echo htmlspecialchars($usuario['revisor_nombre'] . ' ' . $usuario['revison_apellido']); ?></td>
                                     <td><?php echo date('d/m/Y H:i', strtotime($usuario['fecha_carga'])); ?></td>
                                 </tr>
                                 <?php endforeach; ?>
@@ -94,6 +96,7 @@ try {
                                 <th>Email</th>
                                 <th>Nombre</th>
                                 <th>Apellido</th>
+                                <th>Revisor</th>
                                 <th>Fecha de Carga</th>
                             </tr>
                         </thead>
@@ -108,6 +111,7 @@ try {
                                     <td><?php echo htmlspecialchars($usuario['email']); ?></td>
                                     <td><?php echo htmlspecialchars($usuario['nombre']); ?></td>
                                     <td><?php echo htmlspecialchars($usuario['apellido']); ?></td>
+                                    <td><?php echo htmlspecialchars($usuario['revisor_nombre'] . ' ' . $usuario['revison_apellido']); ?></td>
                                     <td><?php echo date('d/m/Y H:i', strtotime($usuario['fecha_carga'])); ?></td>
                                 </tr>
                                 <?php endforeach; ?>
@@ -125,6 +129,7 @@ try {
                                 <th>Email</th>
                                 <th>Nombre</th>
                                 <th>Apellido</th>
+                                <th>Revisor</th>
                                 <th>Fecha de Carga</th>
                             </tr>
                         </thead>
@@ -139,6 +144,7 @@ try {
                                     <td><?php echo htmlspecialchars($usuario['email']); ?></td>
                                     <td><?php echo htmlspecialchars($usuario['nombre']); ?></td>
                                     <td><?php echo htmlspecialchars($usuario['apellido']); ?></td>
+                                    <td><?php echo htmlspecialchars($usuario['revisor_nombre'] . ' ' . $usuario['revison_apellido']); ?></td>
                                     <td><?php echo date('d/m/Y H:i', strtotime($usuario['fecha_carga'])); ?></td>
                                 </tr>
                                 <?php endforeach; ?>
