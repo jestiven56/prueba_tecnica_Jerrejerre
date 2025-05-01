@@ -64,7 +64,6 @@ try {
                                 <th>Nombre</th>
                                 <th>Apellido</th>
                                 <th>Revisor</th>
-                                <th>Fecha de Carga</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -96,7 +95,6 @@ try {
                                 <th>Nombre</th>
                                 <th>Apellido</th>
                                 <th>Revisor</th>
-                                <th>Fecha de Carga</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -128,7 +126,6 @@ try {
                                 <th>Nombre</th>
                                 <th>Apellido</th>
                                 <th>Revisor</th>
-                                <th>Fecha de Carga</th>
                             </tr>
                         </thead>
                         <tbody>
