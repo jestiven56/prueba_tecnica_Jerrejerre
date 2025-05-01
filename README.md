@@ -8,7 +8,8 @@
 He desarrollado una aplicación web que cumple con todos los requerimientos funcionales y no funcionales especificados en la prueba técnica. La solución se compone de:
 
 ### 1. Base de Datos (MySQL)
-- Una tabla `usuarios` que almacena los datos de los usuarios con los campos requeridos: email, nombre, apellido, código y fecha de carga.
+- Una tabla `usuarios` que almacena los datos de los usuarios con los campos requeridos: email, nombre, apellido, código, revior_id y fecha de carga.
+- Una tabla `revisores` que almacena los datos de los revisores que van a estar asociados a los usuarios.
 
 ### 2. Interfaz de Usuario
 - **Formulario de carga**: Una página web con un formulario que permite al usuario cargar un archivo de texto plano.
@@ -61,10 +62,10 @@ He desarrollado una aplicación web que cumple con todos los requerimientos func
 ### Estructura de archivos del archivo TXT
 El archivo debe tener el siguiente formato:
 ```
-email@ejemplo.com,Nombre,Apellido,1
+email@ejemplo.com,Nombre,Apellido,1,4
 ```
 
-Donde el primer campo es el email (obligatorio), el segundo es el nombre (opcional), el tercero es el apellido (opcional) y el cuarto es el código de estado (obligatorio, valores: 1=activo, 2=inactivo, 3=en espera).
+Donde el primer campo es el email (obligatorio), el segundo es el nombre (opcional), el tercero es el apellido (opcional), el cuarto es el código de estado obligatorio (valores: 1=activo, 2=inactivo, 3=en espera) y el quinto es el id del revisor que esta asociado a el respectivo usuario(OBLIGATORIO).
 
 ## Tiempo Real de Solución
 2 horas
